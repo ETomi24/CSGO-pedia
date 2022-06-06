@@ -1,0 +1,31 @@
+<%- include('header') -%>
+<%- include('menu') -%>
+<div class="container">
+    <div class = "row">
+        <div class = "col-12">
+            <h1><p class="fw-bold fs-3">Csapat módosítása</p></h1>
+            <form method = "POST">
+
+                <div class="mb-3 row">
+                    <label for="nev" class="col-sm-2 col-form-label">Csapatnév</label>
+                    <div class="col-sm-4">
+                        <input type="text"  class="form-control" id="nev" name = "nev"  value="<%= csapat.nev%>">
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <label for="alapitasi_ev" class="col-sm-2 col-form-label">Alapítási év</label>
+                    <div class="col-sm-2">
+                        <input type="number" class="form-control" id="alapitasi_ev" name = "alapitasi_ev" value="<%= csapat.alapitasi_ev%>">
+                    </div>
+                </div>
+                <input type = "submit" class = "btn btn-lg btn-primary " value = "Mentés" />
+                <a class = "btn btn-link " href="/csapat" >Mégse</a>
+
+            </form>
+        </div>
+
+    </div>
+
+</div>
+<%- include('footer') -%>

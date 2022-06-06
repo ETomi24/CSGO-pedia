@@ -1,0 +1,42 @@
+<%- include('header') -%>
+<%- include('menu') -%>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1><p class="fw-bold fs-3">Csapatok</p></h1>
+
+            <table class="table table-striped table-bordered">
+                <thead class="table-dark">
+                <tr class = "align-middle">
+                    <th>
+                        <p class="fs-4">Név</p>
+                    </th>
+                    <th>
+                        <p class="fs-4">Alapítási év</p>
+                    </th>
+                    <th >
+                        <a href="/csapat/new" class = "btn btn-sm btn-primary">Új csapat</a>
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <% csapatok.forEach(function(csapat){%>
+                    <tr>
+                        <td>
+                            <%= csapat.nev %>
+                        </td>
+                        <td>
+                            <%= csapat.alapitasi_ev %>
+                        </td>
+                        <td>
+                            <a href=" /csapat/edit/<%= csapat._id %> " class = "btn btn-sm btn-primary">Módosítas</a>
+                            <a href="/csapat/delete/<%= csapat._id %>" class = "btn btn-sm btn-danger">Törlés</a>
+                        </td>
+                    </tr>
+                <%}); %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<%- include('footer') -%>

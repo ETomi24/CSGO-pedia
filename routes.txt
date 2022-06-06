@@ -1,0 +1,66 @@
+CS:GOpédia(Csapatok és Játékosok)
+- index.html                - Játékosok táblázat(módósítás törlés és hozzáadás gomb)
+- Csapatok.html             - Csapatok táblázat(módósítás törlés és hozzáadás gomb)
+- Jatekosmodositas.html     - Jatekos modositas  + mégse
+- Ujjatekos.html            - Uj jatekos mentése + mégse
+- Csapatmodositas.html      - Csapat modositas + mégse
+- Ujcsapat-html             - Uj csapat mentése + mégse
+
+Middlewarek
+
+Jatekos
+    getJatekosokMW
+    getJatekosMW
+    saveJatekosMW
+    deleteJatekosMW
+Csapat
+    getCsapatokMW
+    getCsapatMW
+    saveCsapatMW
+    deleteCsapatMW
+renderMW
+
+
+Routing
+
+GET /                                       - index.html
+     getJatekosokMW
+     renderMW(index.html)
+
+GET /csapat                               - Csapatok.html
+     getCsapatokMW
+     renderMW(Csapatok.html)
+
+GET, POST /jatekos/new                    - Ujjatekos.html
+     saveJatekosMW
+     renderMW(Ujjatekos.html)
+                  - ha volt valami érték beküldbe -> form elemek azzal töltődjenek fel
+                  - ha nem, akkor nem
+
+GET, POST /jatekos/edit/:jatekosId        - Jatekosmodositas.html
+    getJatekosMW
+    saveJatekosMW
+    renderMW(Jatekosmodositas.html)
+                - ha volt valami érték beküldbe -> form elemek azzal töltődjenek fel
+                - ha nem, akkor nem
+
+GET, POST /csapat/new                     - Ujcsapat.html
+    saveCsapatMW
+    renderMW(Ujcsapat.html)
+                 - ha volt valami érték beküldbe -> form elemek azzal töltődjenek fel
+                 - ha nem, akkor nem
+
+GET, POST /csapat/edit/:csapatId           - Csapatmodositas.html
+    getCsapatMW
+    saveCsapatMW
+    renderMW(Csapatmodositas.html)
+                    - ha volt valami érték beküldbe -> form elemek azzal töltődjenek fel
+                    - ha nem, akkor nem
+
+GET /jatekos/delete/:jatekosId
+    getJatekosMW
+    deleteJatekosMW
+
+GET /csapat/delete/:csapatId
+    getCsapatMW
+    deleteCsapatMW

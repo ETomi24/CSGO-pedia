@@ -1,0 +1,42 @@
+<%- include('header') -%>
+<%- include('menu') -%>
+<div class="container">
+    <div class = "row">
+        <div class = "col-12">
+            <h1><p class="fw-bold fs-3">Új játékos hozzáadása</p></h1>
+            <form method="POST">
+
+                <div class="mb-3 row">
+                    <label for="nev" class="col-sm-2 col-form-label">Név</label>
+                    <div class="col-sm-4">
+                        <input type="text"  class="form-control" id="nev" name = "nev" value="">
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <label for="eletkor" class="col-sm-2 col-form-label">Életkor</label>
+                    <div class="col-sm-2">
+                        <input type="number" class="form-control" id="eletkor" name = "eletkor"  value="">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label">Csapat</label>
+                    <div class="col-sm-4">
+                        <select class="form-select" id = "_csapat" name = "_csapat" aria-label="Default select example">
+                            <option value="" disabled hidden selected></option>
+                            <% csapatok.forEach(function(egycsapat){%>
+                            <option value="<%=egycsapat._id%>"><%=egycsapat.nev%></option>
+                            <%})%>
+                        </select>
+                    </div>
+                </div>
+                <input type = "submit" class = "btn btn-lg btn-primary " value = "Létrehozás" />
+                <a class = "btn btn-link " href="/" >Mégse</a>
+
+            </form>
+        </div>
+
+    </div>
+
+</div>
+<%- include('footer') -%>
